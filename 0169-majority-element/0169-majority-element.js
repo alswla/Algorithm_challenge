@@ -5,6 +5,7 @@
 const majorityElement = function(nums) {
   const minCount = nums.length / 2;
   const countObj = {}
+  let maxCount = 0;
   let answer = 0;
   
   for (let i = 0; i < nums.length; i += 1) {
@@ -15,11 +16,12 @@ const majorityElement = function(nums) {
     } else {
       countObj[key] += 1;
     }
-  }
-  
-  for (const [key, value] of Object.entries(countObj)) {
-    if (value >= minCount) {
-      return Number(key);
+    
+    if (countObj[key] > maxCount) {
+      maxCount = countObj[key];
+      answer = Number(key);
     }
   }
+
+  return answer;
 };
