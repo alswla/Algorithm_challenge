@@ -10,15 +10,13 @@
  * @return {ListNode}
  */
 const middleNode = function(head) {
-  const sequence = [];
-  let currentNode = head;
+  let oneStepPointer = head;
+  let twoStepPointer = head;
   
-  while (currentNode !== null) {
-    sequence.push(currentNode);
-    currentNode = currentNode.next;
+  while (twoStepPointer !== null && twoStepPointer.next !== null) {
+    oneStepPointer = oneStepPointer.next;
+    twoStepPointer = twoStepPointer.next.next
   }
   
-  const middle = Math.floor(sequence.length / 2);
-  
-  return sequence[middle];
+  return oneStepPointer
 };
