@@ -16,10 +16,10 @@ const exist = function(board, word) {
     if (board[row][col] !== remain[0]) return false;
   
     const currentChar = board[row][col];
-    const remaining = remain.substring(1);
     board[row][col] = "checked"
+    const remaining = remain.substring(1);
     
-    const result =
+    let result =
         findCharWithDfs(board, row + 1, col, remaining) ||
         findCharWithDfs(board, row - 1, col, remaining) ||
         findCharWithDfs(board, row, col + 1, remaining) ||
@@ -29,11 +29,12 @@ const exist = function(board, word) {
   
     return result;
   }
-
   
   for (let i = 0; i < board.length; i += 1) {
     for (let j = 0; j < board[0].length; j += 1) {
-      if (findCharWithDfs(board, i, j, word)) {
+      let answer = findCharWithDfs(board, i, j, word);
+      
+      if (answer) {
         return true;
       }
     }
