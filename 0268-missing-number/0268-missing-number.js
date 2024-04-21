@@ -3,8 +3,12 @@
  * @return {number}
  */
 const missingNumber = function(nums) {
-  const numsArray = Array.from({ length: nums.length + 1 }, (val, idx) => idx);
-  const missingNumber = numsArray.filter((num) => !nums.includes(num))[0];
-
-  return missingNumber;
+  let targetNum = (nums.length * (nums.length + 1)) / 2;
+  let sum = 0;
+  
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+  }
+  
+  return targetNum - sum;
 };
