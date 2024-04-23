@@ -7,7 +7,7 @@ const isPalindrome = function(x) {
   let start = 0
   let length = str.length - 1
 
-  while(start < length){
+  while (start < length){
     if(str[start] !== str[length]) return false
     start += 1;
     length -= 1;
