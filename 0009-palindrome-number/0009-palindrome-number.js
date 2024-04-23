@@ -9,6 +9,7 @@ const isPalindrome = function(x) {
 
   while (start < length){
     if(str[start] !== str[length]) return false
+    
     start += 1;
     length -= 1;
   }
