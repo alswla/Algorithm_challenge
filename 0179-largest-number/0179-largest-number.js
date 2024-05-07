@@ -3,8 +3,6 @@
  * @return {string}
  */
 const largestNumber = function(nums) {
-  if (nums.every((num) => num === 0)) return "0";
-  
   const digit = nums.map(num => num.toString());
   const sorting = digit.sort((a, b) => {
     const orderA = a + b;
@@ -12,6 +10,8 @@ const largestNumber = function(nums) {
     
     return orderB.localeCompare(orderA); 
   });
+  
+  if (sorting[0] == "0") return "0";
   
   return sorting.join("");
 };
