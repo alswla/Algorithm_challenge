@@ -11,9 +11,7 @@
  * @return {number}
  */
 const maxDepth = function(root) {
-  if (!root) {
-    return 0;
-  }
+  if (!root) return 0;
   
   let depth = 0;
   const stack = [];
